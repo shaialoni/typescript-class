@@ -20,3 +20,4 @@ favoriteShows.map((show:string): string => {
 const holidays: (Date | string)[] = [new Date()]
 holidays.push('2022-01-01')
 holidays.push(new Date())
+
