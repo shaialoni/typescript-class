@@ -1,16 +1,26 @@
 class Employee {
-    startShift(): void {
-        console.log('Employee start to shift')
-    }
-
-    endShift(): void {
+    constructor(public age: number) {}
+    
+    protected endShift(): void {
         console.log('Shift has ended')
     }
 }
 
+const employee = new Employee(29)
+console.log(employee.age)
+
 class Mechanic extends Employee {
-    startShift(): void {
-        console.log('Mechanic start to shift')
+    constructor(public name: string, age: number) {
+        super(age)
+    }
+    
+    private startShift(): void {
+        console.log('Mechanic started to shift')
+    }
+
+    goToWork(): void {
+        this.startShift()
+        this.endShift()
     }
 }
 
@@ -18,6 +28,6 @@ class Mechanic extends Employee {
 // employee.startShift()
 // employee.endShift()
 
-const mechanic = new Mechanic()
-mechanic.startShift()
-mechanic.endShift()
+const mechanic = new Mechanic('James', 30)
+mechanic.goToWork()
+// mechanic.endShift()
